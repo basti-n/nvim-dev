@@ -1,3 +1,7 @@
+require 'core.globals'
+require 'core.keymaps'
+require 'core.options'
+
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -28,6 +32,7 @@ require('lazy').setup({
         opts = {
             -- fill any relevant options here
         },
-    }
+    },
+    require 'plugins.colortheme'
 })
 
