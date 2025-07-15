@@ -20,6 +20,7 @@ require('lazy').setup({
     require 'plugins.neotree',
     require 'plugins.colortheme',
     require 'plugins.bufferline',
-    require 'plugins.lualine'
+    require 'plugins.lualine',
+    require 'plugins.treesitter'
 })
 
