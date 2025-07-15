@@ -103,6 +103,11 @@ return {
             })
         end, { desc = '[/] Fuzzily search in current buffer' })
 
+        -- File Diagnostics
+        vim.keymap.set("n", "<leader>df", function()
+            require("telescope.builtin").diagnostics({ bufnr = 0 })
+        end, { desc = "Telescope: File diagnostics" })
+
         -- It's also possible to pass additional configuration options.
         --  See `:help telescope.builtin.live_grep()` for information about particular keys
         vim.keymap.set('n', '<leader>s/', function()
