@@ -1,9 +1,6 @@
 local keymap = vim.keymap
 local opts = {noremap = true, silent = true}
 
--- Open Neotree
-keymap.set("n", "<leader>ff", ":Neotree reveal<CR>", opts)
-keymap.set("n", "<leader>ef", ":Neotree toggle<CR>", opts)
 
 -- Disable the spacebar key's default behavior in Normal and Visual modes
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
