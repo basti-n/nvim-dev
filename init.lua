@@ -31,4 +31,7 @@ require('lazy').setup {
   require 'plugins.angular',
   require 'plugins.surround',
   require 'plugins.gitsigns',
+  require 'plugins.alpha',
+  require 'plugins.indent-blankline',
+  require 'plugins.misc',
 }
