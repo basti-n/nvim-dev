@@ -24,7 +24,6 @@ return {
                 },
             },
         },
-        "hrsh7th/nvim-cmp",
         -- Allows extra capabilities provided by nvim-cmp
         'hrsh7th/cmp-nvim-lsp',
     },
