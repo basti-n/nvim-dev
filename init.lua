@@ -30,4 +30,5 @@ require('lazy').setup {
   require 'plugins.copilot',
   require 'plugins.angular',
   require 'plugins.surround',
+  require 'plugins.gitsigns',
 }
