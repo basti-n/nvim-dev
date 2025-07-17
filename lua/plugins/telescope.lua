@@ -93,6 +93,7 @@ return {
     vim.keymap.set('n', '<leader>os', builtin.resume, { desc = '[S]earch [R]esume' })
     vim.keymap.set('n', '<leader>of', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+    vim.keymap.set('n', '<leader>vrr', builtin.lsp_references, { desc = 'Find All References' })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()

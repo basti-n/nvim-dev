@@ -1,6 +1,4 @@
-local keymap = vim.keymap
-local opts = {noremap = true, silent = true}
-
+local opts = { noremap = true, silent = true }
 
 -- Disable the spacebar key's default behavior in Normal and Visual modes
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -48,6 +46,14 @@ vim.keymap.set('n', '<leader>to', ':tabnew<CR>', opts) -- open new tab
 vim.keymap.set('n', '<leader>tx', ':tabclose<CR>', opts) -- close current tab
 vim.keymap.set('n', '<leader>tn', ':tabn<CR>', opts) --  go to next tab
 vim.keymap.set('n', '<leader>tp', ':tabp<CR>', opts) --  go to previous tab
+vim.keymap.set('n', '<leader>tca', function()
+  local current = vim.api.nvim_get_current_buf()
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.api.nvim_buf_is_loaded(buf) and buf ~= current then
+      vim.api.nvim_buf_delete(buf, { force = true })
+    end
+  end
+end, { desc = 'Close all other buffers' }) -- closes all but the currently active tab
 
 -- Toggle line wrapping
 vim.keymap.set('n', '<leader>lw', '<cmd>set wrap!<CR>', opts)
@@ -65,3 +71,8 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+-- Move Lines (Up/Down)
+vim.keymap.set('n', 'K', ':m .-2<CR>==', { noremap = true, silent = true })
+vim.keymap.set('n', 'J', ':m .+1<CR>==', { noremap = true, silent = true })
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
