@@ -78,7 +78,7 @@ return {
         -- Format file using the LSP server.
         map('<leader>f', function()
           vim.lsp.buf.format { async = true }
-        end, '[F]ormati File')
+        end, '[F]ormat File')
 
         -- The following two autocommands are used to highlight references of the
         -- word under your cursor when your cursor rests there for a little while.
@@ -132,38 +132,17 @@ return {
     -- - filetypes (table): Override the default list of associated filetypes for the server
     -- - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
     -- - settings (table): Override the default settings passed when initializing the server.
-    local root_pattern = require('lspconfig').util.root_pattern
-    local root_dir = root_pattern('nx.json', 'package.json')
+    -- local root_pattern = require('lspconfig').util.root_pattern
+    -- local root_dir = root_pattern('nx.json', 'package.json')
     local servers = {
       angularls = {},
-      eslint = {
-        root_dir = root_dir,
-        flags = { debounce_text_changes = 500 },
-        on_attach = function(client)
-          client.server_capabilities.document_formatting = true
-        end,
-      },
+      eslint = {},
       bashls = {},
       emmet_ls = {},
       ts_ls = {},
       ruff = {},
-      pylsp = {
-        settings = {
-          pylsp = {
-            plugins = {
-              pyflakes = { enabled = false },
-              pycodestyle = { enabled = false },
-              autopep8 = { enabled = false },
-              yapf = { enabled = false },
-              mccabe = { enabled = false },
-              pylsp_mypy = { enabled = false },
-              pylsp_black = { enabled = false },
-              pylsp_isort = { enabled = false },
-            },
-          },
-        },
-      },
-      html = { filetypes = { 'html', 'twig', 'hbs' } },
+      pylsp = {},
+      html = {},
       cssls = {},
       tailwindcss = {},
       dockerls = {},
