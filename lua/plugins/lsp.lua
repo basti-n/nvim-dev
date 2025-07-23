@@ -142,7 +142,29 @@ return {
       eslint = {},
       bashls = {},
       emmet_ls = {},
-      ts_ls = {},
+      ts_ls = {
+        on_attach = function(_client, bufnr)
+          local opts = { buffer = bufnr, silent = true }
+
+          -- add missing ts imports
+          vim.keymap.set('n', '<leader>amp', function()
+            vim.lsp.buf.code_action {
+              apply = true,
+              ---@diagnostic disable-next-line: assign-type-mismatch
+              context = { only = { 'source.addMissingImports.ts' } },
+            }
+          end, vim.tbl_extend('force', opts, { desc = 'Add missing imports (tsserver)' }))
+
+          -- remove unused ts imports
+          vim.keymap.set('n', '<leader>ru', function()
+            vim.lsp.buf.code_action {
+              apply = true,
+              ---@diagnostic disable-next-line: assign-type-mismatch
+              context = { only = { 'source.removeUnused.ts' } },
+            }
+          end, vim.tbl_extend('force', opts, { desc = 'Remove unused imports (tsserver)' }))
+        end,
+      },
       ruff = {},
       pylsp = {},
       html = {},
