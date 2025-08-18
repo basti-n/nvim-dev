@@ -140,6 +140,7 @@ return {
     local servers = {
       angularls = {},
       eslint = {},
+      vuels = {},
       bashls = {},
       emmet_ls = {},
       ts_ls = {
