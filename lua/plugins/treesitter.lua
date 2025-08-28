@@ -32,6 +32,7 @@ return { -- Highlight, edit, and navigate code
       'css',
       'html',
       'angular',
+      'diff',
     },
     -- Autoinstall languages that are not installed
     auto_install = true,
