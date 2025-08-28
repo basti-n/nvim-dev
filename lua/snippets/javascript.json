@@ -1,0 +1,57 @@
+{
+  "Node.js Express Server": {
+    "prefix": "ex-node-server-simple",
+    "description": "Node.js Express Server",
+    "body": [
+      "const express = require('express');",
+      "const app = express();",
+      "const port = process.env.PORT || ${1:port};",
+      "const www = process.env.WWW || '${2:./}';",
+      "app.use(express.static(www));",
+      "console.log(`serving \\${www}`);",
+      "app.get('*', (req, res) => {",
+      "\tres.sendFile(`index.html`, { root: www });",
+      "});",
+      "app.listen(port, () => console.log(`listening on http://localhost:\\${port}`));",
+      "$0"
+    ]
+  },
+  "Console Log": {
+    "prefix": "log",
+    "description": "console log",
+    "body": [
+      "console.log(${1:log-value});"
+    ]
+  },
+  "JSDoc": {
+    "prefix": "jsd",
+    "description": "JSDoc",
+    "body": [
+      "/**",
+      " * ${1:Description}",
+      " */"
+    ]
+  },
+  "JSDoc FN": {
+    "prefix": "jsdf",
+    "description": "JSDoc",
+    "body": [
+      "/**",
+      " * ${1:Description}",
+      " * @param {${2:type}} ${3:variable} - ${4:Description}",
+      " * @returns {${5:type}} - ${6:Description}",
+      " */"
+    ]
+  },
+  "JSDoc FN Async": {
+    "prefix": "jsdfa",
+    "description": "JSDoc Async",
+    "body": [
+      "/**",
+      " * ${1:Description}",
+      " * @param {${2:type}} ${3:variable} - ${4:Description}",
+      " * @returns {Promise<${5:type}>} - ${6:Description}",
+      " */"
+    ]
+  }
+}
