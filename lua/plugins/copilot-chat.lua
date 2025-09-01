@@ -36,6 +36,7 @@ return {
     branch = 'main',
     -- version = "v3.7.0",
     dependencies = {
+      { 'nvim-telescope/telescope.nvim' },
       { 'nvim-lua/plenary.nvim' },
     },
     opts = {
@@ -43,12 +44,12 @@ return {
       answer_header = '## Copilot ',
       error_header = '## Error ',
       prompts = prompts,
-      model = 'claude-3.7-sonnet',
+      model = 'claude-4.0',
       mappings = {
         -- Use tab for completion
         complete = {
           detail = 'Use @<Tab> or /<Tab> for options.',
-          insert = '',
+          insert = '<C-p>',
         },
         -- Close the chat
         close = {
@@ -122,6 +123,31 @@ return {
           vim.opt_local.number = true
         end,
       })
+
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = 'copilot-chat',
+        callback = function()
+          vim.keymap.set({ 'n', 'i' }, '<leader>pf', function()
+            require('telescope.builtin').find_files {
+              attach_mappings = function(_, map)
+                local actions = require 'telescope.actions'
+                local action_state = require 'telescope.actions.state'
+
+                local function insert_path(prompt_bufnr)
+                  local selection = action_state.get_selected_entry()
+                  actions.close(prompt_bufnr)
+                  local rel_path = vim.fn.fnamemodify(selection.path, ':.')
+                  vim.api.nvim_put({ rel_path }, '', false, true)
+                end
+
+                map('i', '<C-p>', insert_path)
+                map('n', '<C-p>', insert_path)
+                return true
+              end,
+            }
+          end, { buffer = true })
+        end,
+      })
     end,
     keys = {
       -- Show prompts actions
@@ -145,11 +171,11 @@ return {
         desc = 'CopilotChat - Prompt actions',
       },
       -- Code related commands
-      { '<leader>ae', '<cmd>CopilotChatExplain<cr>', desc = 'CopilotChat - Explain code' },
-      { '<leader>at', '<cmd>CopilotChatTests<cr>', desc = 'CopilotChat - Generate tests' },
-      { '<leader>ar', '<cmd>CopilotChatReview<cr>', desc = 'CopilotChat - Review code' },
-      { '<leader>aR', '<cmd>CopilotChatRefactor<cr>', desc = 'CopilotChat - Refactor code' },
-      { '<leader>an', '<cmd>CopilotChatBetterNamings<cr>', desc = 'CopilotChat - Better Naming' },
+      { '<leader>ae', '<cmd>CopilotChatExplain#buffer<cr>', desc = 'CopilotChat - Explain code' },
+      { '<leader>at', '<cmd>CopilotChatTests#buffer<cr>', desc = 'CopilotChat - Generate tests' },
+      { '<leader>ar', '<cmd>CopilotChatReview#buffer<cr>', desc = 'CopilotChat - Review code' },
+      { '<leader>aR', '<cmd>CopilotChatRefactor#buffer<cr>', desc = 'CopilotChat - Refactor code' },
+      { '<leader>an', '<cmd>CopilotChatBetterNamings#buffer<cr>', desc = 'CopilotChat - Better Naming' },
       -- Chat with Copilot in visual mode
       {
         '<leader>av',
