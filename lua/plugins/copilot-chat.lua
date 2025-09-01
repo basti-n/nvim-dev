@@ -44,7 +44,7 @@ return {
       answer_header = '## Copilot ',
       error_header = '## Error ',
       prompts = prompts,
-      model = 'claude-4.0',
+      model = 'claude-sonnet-4',
       mappings = {
         -- Use tab for completion
         complete = {
@@ -176,6 +176,11 @@ return {
       { '<leader>ar', '<cmd>CopilotChatReview#buffer<cr>', desc = 'CopilotChat - Review code' },
       { '<leader>aR', '<cmd>CopilotChatRefactor#buffer<cr>', desc = 'CopilotChat - Refactor code' },
       { '<leader>an', '<cmd>CopilotChatBetterNamings#buffer<cr>', desc = 'CopilotChat - Better Naming' },
+      -- selected prompts
+      { '<C-a>e', '<cmd>CopilotChatExplain<cr>', desc = 'CopilotChat - Explain code', mode = 'v' },
+      { '<C-a>r', '<cmd>CopilotChatReview#selection<cr>', desc = 'CopilotChat - Review code', mode = 'v' },
+      { '<C-a>R', '<cmd>CopilotChatRefactor#selection<cr>', desc = 'CopilotChat - Refactor code', mode = 'v' },
+      { '<C-a>n', '<cmd>CopilotChatBetterNamings#selection<cr>', desc = 'CopilotChat - Better Naming', mode = 'v' },
       -- Chat with Copilot in visual mode
       {
         '<leader>av',
