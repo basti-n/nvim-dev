@@ -5,6 +5,7 @@ local prompts = {
   Explain = 'Please explain how the following code works.',
   Review = 'Please review the following code and provide suggestions for improvement.',
   Tests = 'Please explain how the selected code works, then generate unit tests for it.',
+  TestsOnly = '#buffer Please generate unit tests for the current file (buffer). Use jest. Write describe block for all public functionalities.',
   Refactor = 'Please refactor the following code to improve its clarity and readability.',
   FixCode = 'Please fix the following code to make it work as intended.',
   FixError = 'Please explain the error in the following text and provide a solution.',
@@ -172,11 +173,12 @@ return {
       },
       -- Code related commands
       { '<leader>ae', '<cmd>CopilotChatExplain#buffer<cr>', desc = 'CopilotChat - Explain code' },
-      { '<leader>at', '<cmd>CopilotChatTests#buffer<cr>', desc = 'CopilotChat - Generate tests' },
+      { '<leader>aT', '<cmd>CopilotChatTests#buffer<cr>', desc = 'CopilotChat - Generate tests' },
       { '<leader>ar', '<cmd>CopilotChatReview#buffer<cr>', desc = 'CopilotChat - Review code' },
       { '<leader>aR', '<cmd>CopilotChatRefactor#buffer<cr>', desc = 'CopilotChat - Refactor code' },
       { '<leader>an', '<cmd>CopilotChatBetterNamings#buffer<cr>', desc = 'CopilotChat - Better Naming' },
       -- selected prompts
+      { '<C-a>s', '<cmd>CopilotChatVisual#selection<cr>', desc = 'CopilotChat - Context: Selection', mode = 'v' },
       { '<C-a>e', '<cmd>CopilotChatExplain<cr>', desc = 'CopilotChat - Explain code', mode = 'v' },
       { '<C-a>r', '<cmd>CopilotChatReview#selection<cr>', desc = 'CopilotChat - Review code', mode = 'v' },
       { '<C-a>R', '<cmd>CopilotChatRefactor#selection<cr>', desc = 'CopilotChat - Refactor code', mode = 'v' },
