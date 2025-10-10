@@ -33,6 +33,7 @@ require('lazy').setup {
   require 'plugins.lualine',
   require 'plugins.misc',
   require 'plugins.neotree',
+  require 'plugins.render-markdown',
   require 'plugins.surround',
   require 'plugins.telescope',
   require 'plugins.treesitter',
