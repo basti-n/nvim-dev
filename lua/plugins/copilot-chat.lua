@@ -149,6 +149,29 @@ return {
           end, { buffer = true })
         end,
       })
+
+      -- Store initial width for toggling
+      local initial_width = 0.5
+      local is_full_width = false
+
+      -- Toggle between full width and initial width
+      local function toggle_width()
+        if is_full_width then
+          -- Go back to initial split width
+          chat.config.window.width = initial_width
+          is_full_width = false
+        else
+          -- Go to full width
+          chat.config.window.width = 1.0
+          is_full_width = true
+        end
+        -- Close and reopen to apply new width
+        chat.close()
+        chat.open()
+      end
+
+      -- Add the width toggle keybinding
+      vim.keymap.set({ 'n', 'v' }, '<leader>aw', toggle_width, { desc = 'CopilotChat - Toggle width' })
     end,
     keys = {
       -- Show prompts actions
