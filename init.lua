@@ -37,4 +37,5 @@ require('lazy').setup {
   require 'plugins.surround',
   require 'plugins.telescope',
   require 'plugins.treesitter',
+  require 'plugins.twilight',
 }
