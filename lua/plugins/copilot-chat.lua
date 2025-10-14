@@ -1,4 +1,5 @@
 local IS_DEV = false
+local utils = require 'core.utils'
 
 local prompts = {
   -- Code related prompts
@@ -18,6 +19,10 @@ local prompts = {
   Spelling = 'Please correct any grammar and spelling errors in the following text.',
   Wording = 'Please improve the grammar and wording of the following text.',
   Concise = 'Please rewrite the following text to make it more concise.',
+  Research = {
+    prompt = 'Follow the instructions from the markdown file:',
+    system_prompt = utils.read_file(vim.fn.expand '~/agent/research_codebase.md'),
+  },
 }
 
 return {
