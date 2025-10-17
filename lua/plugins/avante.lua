@@ -20,10 +20,12 @@ return {
         -- proxy = nil,
         -- allow_insecure = false,
         timeout = 10 * 60 * 1000,
-        -- extra_request_body = {
-        --   temperature = 0,
-        --   max_completion_tokens = 1000000,
-        -- },
+        extra_request_body = {
+          --   temperature = 0,
+          --   max_completion_tokens = 1000000,
+          temperature = 0.75,
+          max_tokens = 4096,
+        },
         -- reasoning_effort = 'high',
         model = 'claude-sonnet-4.5',
       },
