@@ -30,6 +30,7 @@ require('lazy').setup {
   require 'plugins.lazygit',
   require 'plugins.lsp',
   require 'plugins.lualine',
+  require 'plugins.mcphub',
   require 'plugins.misc',
   require 'plugins.neotree',
   require 'plugins.render-markdown',
