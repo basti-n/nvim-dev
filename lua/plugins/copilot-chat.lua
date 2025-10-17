@@ -23,6 +23,18 @@ local prompts = {
     prompt = 'Follow the instructions from the markdown file:',
     system_prompt = utils.read_file(vim.fn.expand '~/agent/research_codebase.md'),
   },
+  Commit = {
+    prompt = 'Follow the instructions from the markdown file:',
+    system_prompt = utils.read_file(vim.fn.expand '~/agent/commit.md'),
+  },
+  CreatePlan = {
+    prompt = 'Follow the instructions from the markdown file:',
+    system_prompt = utils.read_file(vim.fn.expand '~/agent/create_plan.md'),
+  },
+  ImplementPlan = {
+    prompt = 'Follow the instructions from the markdown file:',
+    system_prompt = utils.read_file(vim.fn.expand '~/agent/implement_plan.md'),
+  },
 }
 
 return {
@@ -50,7 +62,7 @@ return {
       answer_header = '## Copilot ',
       error_header = '## Error ',
       prompts = prompts,
-      model = 'claude-sonnet-4',
+      model = 'claude-sonnet-4.5',
       mappings = {
         -- Use tab for completion
         complete = {
