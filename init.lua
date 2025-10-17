@@ -13,19 +13,18 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 
----@type vim.Option
-local rtp = vim.opt.rtp
-rtp:prepend(lazypath)
+vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup {
   require 'plugins.alpha',
   require 'plugins.angular',
   require 'plugins.autocompletion',
   require 'plugins.autoformatting',
+  require 'plugins.avante',
   require 'plugins.bufferline',
   require 'plugins.colortheme',
   require 'plugins.copilot',
-  require 'plugins.copilot-chat',
+  -- require 'plugins.copilot-chat',
   require 'plugins.gitsigns',
   require 'plugins.indent-blankline',
   require 'plugins.lazygit',
