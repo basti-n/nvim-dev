@@ -37,6 +37,8 @@ return {
   },
   keys = {
     { '<C-x>', '<cmd>AvanteClear<cr>', desc = 'Avante Clear' },
+    { '<C-a>', '<cmd>AvanteToggle<cr>', desc = 'Avante Toggle', mode = { 'n', 'i' } },
+    { '<leader>af', '<cmd>AvanteFocus<cr>', desc = 'Avante Focus' },
     {
       '<leader>aw',
       function()
