@@ -89,13 +89,6 @@ return {
         desc = 'Sidekick Select Prompt',
       },
       {
-        '<leader>ac',
-        function()
-          require('sidekick.cli').toggle { name = 'claude', focus = true }
-        end,
-        desc = 'Sidekick Toggle Claude',
-      },
-      {
         '<leader>aw',
         function()
           -- Find the sidekick CLI window
@@ -108,7 +101,7 @@ return {
               break
             end
           end
-          
+
           if win and vim.api.nvim_win_is_valid(win) then
             local current_width = vim.api.nvim_win_get_width(win)
             local full_width = vim.o.columns
