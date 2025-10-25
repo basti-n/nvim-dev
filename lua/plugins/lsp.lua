@@ -166,6 +166,27 @@ return {
           end, vim.tbl_extend('force', opts, { desc = 'Remove unused imports (tsserver)' }))
         end,
       },
+      rust_analyzer = {
+        settings = {
+          ['rust-analyzer'] = {
+            cargo = {
+              allFeatures = true,
+              loadOutDirsFromCheck = true,
+              buildScripts = {
+                enable = true,
+              },
+            },
+            -- Add clippy lints for Rust
+            checkOnSave = true,
+            procMacro = {
+              enable = true,
+            },
+            diagnostics = {
+              enable = true,
+            },
+          },
+        },
+      },
       ruff = {},
       pylsp = {},
       html = {},
@@ -203,6 +224,7 @@ return {
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
+      'rustfmt', -- Used to format Rust code
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
