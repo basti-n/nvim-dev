@@ -95,6 +95,33 @@ return {
         end,
         desc = 'Sidekick Toggle Claude',
       },
+      {
+        '<leader>aw',
+        function()
+          -- Find the sidekick CLI window
+          local win = nil
+          for _, w in ipairs(vim.api.nvim_list_wins()) do
+            local buf = vim.api.nvim_win_get_buf(w)
+            local ft = vim.bo[buf].filetype
+            if ft == 'sidekick_terminal' then
+              win = w
+              break
+            end
+          end
+          
+          if win and vim.api.nvim_win_is_valid(win) then
+            local current_width = vim.api.nvim_win_get_width(win)
+            local full_width = vim.o.columns
+            if current_width < full_width * 0.9 then
+              vim.api.nvim_win_set_width(win, full_width)
+            else
+              vim.api.nvim_win_set_width(win, math.floor(full_width * 0.5))
+            end
+          end
+        end,
+        desc = 'Toggle Sidekick Width',
+        mode = { 'n', 't' },
+      },
     },
   },
 
