@@ -56,6 +56,10 @@
         "path": "./html.json"
       },
       {
+        "language": "htmlangular",
+        "path": "./html.json"
+      },
+      {
         "language": "dockerfile",
         "path": "./dockerfile.json"
       }

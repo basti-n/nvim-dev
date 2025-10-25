@@ -135,5 +135,60 @@
     "prefix": "a-ng-content",
     "body": ["<ng-content select=\"${0:selector}\"></ng-content>"],
     "description": "Angular ng-content"
+  },
+  "@if": {
+    "prefix": "a-@if",
+    "body": ["@if (${1:condition}) {", "\t$0", "}"],
+    "description": "Angular @if control flow"
+  },
+  "@if-else": {
+    "prefix": "a-@if-else",
+    "body": ["@if (${1:condition}) {", "\t${2}", "} @else {", "\t${0}", "}"],
+    "description": "Angular @if @else control flow"
+  },
+  "@if-else-if": {
+    "prefix": "a-@if-else-if",
+    "body": ["@if (${1:condition}) {", "\t${2}", "} @else if (${3:condition}) {", "\t${4}", "} @else {", "\t${0}", "}"],
+    "description": "Angular @if @else if control flow"
+  },
+  "@for": {
+    "prefix": "a-@for",
+    "body": ["@for (${1:item} of ${2:items}; track ${1:item}.${3:id}) {", "\t$0", "}"],
+    "description": "Angular @for control flow"
+  },
+  "@for-empty": {
+    "prefix": "a-@for-empty",
+    "body": ["@for (${1:item} of ${2:items}; track ${1:item}.${3:id}) {", "\t${4}", "} @empty {", "\t${0}", "}"],
+    "description": "Angular @for with @empty control flow"
+  },
+  "@for-index": {
+    "prefix": "a-@for-index",
+    "body": ["@for (${1:item} of ${2:items}; track ${1:item}.${3:id}; let ${4:i} = \\$index) {", "\t$0", "}"],
+    "description": "Angular @for with index control flow"
+  },
+  "@for-variables": {
+    "prefix": "a-@for-vars",
+    "body": ["@for (${1:item} of ${2:items}; track ${1:item}.${3:id}; let ${4:i} = \\$index, ${5:first} = \\$first, ${6:last} = \\$last) {", "\t$0", "}"],
+    "description": "Angular @for with context variables"
+  },
+  "@switch": {
+    "prefix": "a-@switch",
+    "body": ["@switch (${1:condition}) {", "\t@case (${2:value}) {", "\t\t${3}", "\t}", "\t@default {", "\t\t${0}", "\t}", "}"],
+    "description": "Angular @switch control flow"
+  },
+  "@defer": {
+    "prefix": "a-@defer",
+    "body": ["@defer {", "\t${1}", "} @placeholder {", "\t${2:<p>Loading...</p>}", "}"],
+    "description": "Angular @defer with @placeholder"
+  },
+  "@defer-on": {
+    "prefix": "a-@defer-on",
+    "body": ["@defer (on ${1|viewport,idle,immediate,timer,hover,interaction|}) {", "\t${2}", "} @placeholder {", "\t${3:<p>Loading...</p>}", "}"],
+    "description": "Angular @defer with trigger"
+  },
+  "@defer-full": {
+    "prefix": "a-@defer-full",
+    "body": ["@defer (on ${1:viewport}) {", "\t${2}", "} @loading {", "\t${3:<p>Loading...</p>}", "} @placeholder {", "\t${4:<p>Placeholder</p>}", "} @error {", "\t${0:<p>Error loading content</p>}", "}"],
+    "description": "Angular @defer with all blocks"
   }
 }
