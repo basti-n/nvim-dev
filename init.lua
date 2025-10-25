@@ -18,7 +18,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup {
   -- require 'plugins.avante',
   -- require 'plugins.copilot-chat',
-  require 'plugins.codecompanion',
+  -- require 'plugins.codecompanion',
   require 'plugins.alpha',
   require 'plugins.angular',
   require 'plugins.autocompletion',
@@ -35,6 +35,7 @@ require('lazy').setup {
   require 'plugins.neotree',
   require 'plugins.render-markdown',
   require 'plugins.surround',
+  require 'plugins.sidekick',
   require 'plugins.telescope',
   require 'plugins.treesitter',
   require 'plugins.twilight',
