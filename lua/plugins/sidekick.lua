@@ -16,7 +16,7 @@ return {
     keys = {
       -- Remember: <c-q> to go into normal mode in copilot CLI
       {
-        '<tab>',
+        '<c-j>',
         function()
           -- if there is a next edit, jump to it, otherwise apply it if any
           local nes_jump_or_apply = require('sidekick').nes_jump_or_apply
@@ -125,7 +125,7 @@ return {
     version = '1.*',
     opts = {
       keymap = {
-        ['<Tab>'] = {
+        ['<C-j>'] = {
           'snippet_forward',
           function()
             return require('sidekick').nes_jump_or_apply()
