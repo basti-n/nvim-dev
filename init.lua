@@ -35,7 +35,7 @@ require('lazy').setup {
   require 'plugins.misc',
   require 'plugins.neotree',
   require 'plugins.render-markdown',
-  require 'plugins.sidekick',
+  require 'plugins.opencode',
   require 'plugins.surround',
   require 'plugins.telescope',
   require 'plugins.treesitter',
