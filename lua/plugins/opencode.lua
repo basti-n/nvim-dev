@@ -11,16 +11,18 @@ return {
       ---@type opencode.Opts
       vim.g.opencode_opts = {
         -- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition".
+        provider = {
+          enabled = 'tmux',
+        },
       }
 
       -- Required for `opts.events.reload`.
       vim.o.autoread = true
 
       -- Keymaps matching sidekick functionality as closely as possible
-      vim.keymap.set({ 'n', 't' }, '<c-.>', opencode.toggle, { desc = 'Toggle OpenCode' })
-      vim.keymap.set({ 'n', 't' }, '<leader>at', opencode.toggle, { desc = 'Toggle OpenCode' })
+      vim.keymap.set({ 'n', 't' }, '<leader>aa', opencode.toggle, { desc = 'Toggle OpenCode' })
 
-      vim.keymap.set({ 'n', 'x' }, '<leader>aa', function()
+      vim.keymap.set({ 'n', 'x' }, '<leader>ask', function()
         opencode.ask('@this: ', { submit = true })
       end, { desc = 'Ask OpenCode' })
 
