@@ -30,7 +30,7 @@ return {
         opencode.command 'session.list'
       end, { desc = 'Select OpenCode Session' })
 
-      vim.keymap.set({ 'n', 'x' }, '<leader>at', function()
+      vim.keymap.set({ 'n', 'x' }, '<leader>ath', function()
         opencode.prompt '@this'
       end, { desc = 'Send This to OpenCode' })
 
