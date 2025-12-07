@@ -121,6 +121,16 @@ return {
       end,
     })
 
+    -- Format Rust files on save using LSP
+    vim.api.nvim_create_autocmd('BufWritePre', {
+      group = vim.api.nvim_create_augroup('rust-format-on-save', { clear = true }),
+      callback = function()
+        if vim.bo.filetype == 'rust' then
+          vim.lsp.buf.format { async = false }
+        end
+      end,
+    })
+
     -- LSP servers and clients are able to communicate to each other what features they support.
     -- By default, Neovim doesn't support everything that is in the LSP specification.
     -- When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
