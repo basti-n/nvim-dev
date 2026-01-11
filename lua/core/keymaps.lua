@@ -1,4 +1,5 @@
 local opts = { noremap = true, silent = true }
+local tmux = require 'core.tmux'
 
 -- Disable the spacebar key's default behavior in Normal and Visual modes
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -76,3 +77,17 @@ vim.keymap.set('n', 'K', ':m .-2<CR>==', { noremap = true, silent = true })
 vim.keymap.set('n', 'J', ':m .+1<CR>==', { noremap = true, silent = true })
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+
+-- Tmux Popup
+vim.keymap.set('n', '<leader>git', function()
+  local cwd = vim.fn.getcwd()
+  local escaped_cwd = vim.fn.shellescape(cwd)
+  local lazygit_cmd = 'cd ' .. escaped_cwd .. ' && lazygit'
+  local shell_cmd = ('sh -lc %q'):format(lazygit_cmd)
+
+  tmux.popup { cmd = shell_cmd, title = 'LazyGit' }
+end, { noremap = true, silent = true, desc = 'Tmux popup: LazyGit' })
+
+vim.keymap.set('n', '<leader>zsh', function()
+  tmux.popup { cmd = 'zsh -c "NVIM_APPNAME=nvim-dev nvim $HOME/.zshrc"', title = 'zshrc' }
+end, { noremap = true, silent = true, desc = 'Tmux popup: zshrc' })
