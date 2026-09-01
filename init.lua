@@ -1,3 +1,8 @@
+require 'core.globals'
+require 'core.keymaps'
+require 'core.options'
+require 'core.snippets'
+
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -8,26 +13,27 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 
----@type vim.Option
-local rtp = vim.opt.rtp
-rtp:prepend(lazypath)
+vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup({
-    {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v3.x",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-            "MunifTanjim/nui.nvim",
-            -- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
-        },
-        lazy = false, -- neo-tree will lazily load itself
-        ---@module "neo-tree"
-        ---@type neotree.Config?
-        opts = {
-            -- fill any relevant options here
-        },
-    }
-})
-
+require('lazy').setup {
+  require 'plugins.alpha',
+  require 'plugins.angular',
+  require 'plugins.autocompletion',
+  require 'plugins.autoformatting',
+  require 'plugins.bufferline',
+  require 'plugins.colortheme',
+  require 'plugins.diffview',
+  require 'plugins.gitsigns',
+  require 'plugins.indent-blankline',
+  require 'plugins.lazygit',
+  require 'plugins.lsp',
+  require 'plugins.lualine',
+  require 'plugins.misc',
+  require 'plugins.neotree',
+  require 'plugins.render-markdown',
+  require 'plugins.opencode',
+  require 'plugins.surround',
+  require 'plugins.telescope',
+  require 'plugins.treesitter',
+  require 'plugins.twilight',
+}

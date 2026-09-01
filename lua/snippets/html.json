@@ -1,0 +1,194 @@
+{
+  "class": {
+    "prefix": "a-class",
+    "body": ["[class]=\"${1:expression}\""],
+    "description": "Angular [class] binding"
+  },
+  "style": {
+    "prefix": "a-style",
+    "body": ["[style.${1:property}]=\"${2:expression}\""],
+    "description": "Angular [style] binding"
+  },
+  "ngClass": {
+    "prefix": "a-ngClass",
+    "body": ["[ngClass]=\"{${1:cssClass}: ${2:expression}}\""],
+    "description": "Angular ngClass"
+  },
+  "ngFor": {
+    "prefix": "a-ngFor",
+    "body": ["*ngFor=\"let ${1:item} of ${2:list}\"${0}"],
+    "description": "Angular *ngFor"
+  },
+  "ngFor with trackBy": {
+    "prefix": "a-ngFor-trackBy",
+    "body": ["*ngFor=\"let ${1:item} of ${2:list}; trackBy:${1:item}.id\"${0}"],
+    "description": "Angular *ngFor with trackBy"
+  },
+  "ngForAsync": {
+    "prefix": "a-ngForAsync",
+    "body": ["*ngFor=\"let ${1:item} of ${2:stream} | async as ${3:list}\"${0}"],
+    "description": "Angular *ngForAsync"
+  },
+  "ngForm": {
+    "prefix": "a-form",
+    "body": ["<form (ngSubmit)=\"onSubmit()\" #${1:form}=\"ngForm\">", "</form>"],
+    "description": "Form with ngSubmit and form attributes"
+  },
+  "ngFormArrayName": {
+    "prefix": "a-formArrayName",
+    "body": ["formArrayName=\"${1:control}\""],
+    "description": "Angular formArrayName"
+  },
+  "ngFormControlName": {
+    "prefix": "a-formControlName",
+    "body": ["formControlName=\"${1:control}\""],
+    "description": "Angular formControlName"
+  },
+  "ngFormGroup": {
+    "prefix": "a-formGroup",
+    "body": ["[formGroup]=\"${1:form}\""],
+    "description": "Angular formGroup"
+  },
+  "ngFormGroupName": {
+    "prefix": "a-formGroupName",
+    "body": ["[formGroupName]=\"${1:name}\""],
+    "description": "Angular formGroupName"
+  },
+  "ngFormSubmit": {
+    "prefix": "a-form-submit",
+    "body": ["<button type=\"submit\" [disabled]=\"!${1:form}.form.valid\">", "\tSave", "</button>"],
+    "description": "Angular form submit"
+  },
+  "ngIf": {
+    "prefix": "a-ngIf",
+    "body": ["*ngIf=\"${1:expression}\""],
+    "description": "Angular *ngIf"
+  },
+  "ngIfElse": {
+    "prefix": "a-ngIfElse",
+    "body": ["*ngIf=\"${1:expression};else ${2:templateName}\""],
+    "description": "Angular *ngIfElse"
+  },
+  "ngModel": {
+    "prefix": "a-ngModel",
+    "body": ["[(ngModel)]=\"${1:binding}\""],
+    "description": "Angular ngModel"
+  },
+  "ngRouterLink": {
+    "prefix": "a-routerLink",
+    "body": ["[routerLink]=\"['/${1:routePath}']\" routerLinkActive=\"${2:router-link-active}\" $0"],
+    "description": "Angular routerLink"
+  },
+  "ngRouterLinkWithParameter": {
+    "prefix": "a-routerLink-param",
+    "body": [
+      "[routerLink]=\"['${1:routePath}', ${2:routeParameterValue}]\"",
+      "routerLinkActive=\"${3:router-link-active}\"$0"
+    ],
+    "description": "Angular routerLink with a route parameter"
+  },
+  "ngSelect": {
+    "prefix": "a-select",
+    "body": [
+      "<select [(ngModel)]=\"${1:model}\">",
+      "\t<option *ngFor=\"let ${2:item} of ${3:list}\" [value]=\"${2:item}\">{{${2:item}}}</option>",
+      "</select>"
+    ],
+    "description": "<select> control with ngModel"
+  },
+  "ngStyle": {
+    "prefix": "a-ngStyle",
+    "body": ["[ngStyle]=\"{${1:style}: ${2:expression}}\""],
+    "description": "Angular ngStyle"
+  },
+  "ngSwitch": {
+    "prefix": "a-ngSwitch",
+    "body": [
+      "<div [ngSwitch]=\"${1:conditionExpression}\">",
+      "\t<div *ngSwitchCase=\"${2:expression}\">${3:output}</div>",
+      "\t<div *ngSwitchDefault>${4:output2}</div>",
+      "</div>"
+    ],
+    "description": "Angular ngSwitch"
+  },
+  "pre w/ json": {
+    "prefix": "a-prej",
+    "body": ["<pre>{{${1:model} | json}}</pre>$0"],
+    "description": "Angular pre debug | json"
+  },
+  "pre w/ async json": {
+    "prefix": "a-preja",
+    "body": ["<pre>{{${1:model} | async | json}}</pre>$0"],
+    "description": "Angular pre debug | async | json"
+  },
+  "ng-container": {
+    "prefix": "a-ng-container",
+    "body": ["<ng-container $0></ng-container>"],
+    "description": "Angular ng-container"
+  },
+  "ng-template": {
+    "prefix": "a-ng-template",
+    "body": ["<ng-template [ngTemplateOutlet]=\"${1:outlet}\" [ngOutletContext]=\"${2:context}\"></ng-template>"],
+    "description": "Angular ng-template"
+  },
+  "ng-content": {
+    "prefix": "a-ng-content",
+    "body": ["<ng-content select=\"${0:selector}\"></ng-content>"],
+    "description": "Angular ng-content"
+  },
+  "@if": {
+    "prefix": "a-@if",
+    "body": ["@if (${1:condition}) {", "\t$0", "}"],
+    "description": "Angular @if control flow"
+  },
+  "@if-else": {
+    "prefix": "a-@if-else",
+    "body": ["@if (${1:condition}) {", "\t${2}", "} @else {", "\t${0}", "}"],
+    "description": "Angular @if @else control flow"
+  },
+  "@if-else-if": {
+    "prefix": "a-@if-else-if",
+    "body": ["@if (${1:condition}) {", "\t${2}", "} @else if (${3:condition}) {", "\t${4}", "} @else {", "\t${0}", "}"],
+    "description": "Angular @if @else if control flow"
+  },
+  "@for": {
+    "prefix": "a-@for",
+    "body": ["@for (${1:item} of ${2:items}; track ${1:item}.${3:id}) {", "\t$0", "}"],
+    "description": "Angular @for control flow"
+  },
+  "@for-empty": {
+    "prefix": "a-@for-empty",
+    "body": ["@for (${1:item} of ${2:items}; track ${1:item}.${3:id}) {", "\t${4}", "} @empty {", "\t${0}", "}"],
+    "description": "Angular @for with @empty control flow"
+  },
+  "@for-index": {
+    "prefix": "a-@for-index",
+    "body": ["@for (${1:item} of ${2:items}; track ${1:item}.${3:id}; let ${4:i} = \\$index) {", "\t$0", "}"],
+    "description": "Angular @for with index control flow"
+  },
+  "@for-variables": {
+    "prefix": "a-@for-vars",
+    "body": ["@for (${1:item} of ${2:items}; track ${1:item}.${3:id}; let ${4:i} = \\$index, ${5:first} = \\$first, ${6:last} = \\$last) {", "\t$0", "}"],
+    "description": "Angular @for with context variables"
+  },
+  "@switch": {
+    "prefix": "a-@switch",
+    "body": ["@switch (${1:condition}) {", "\t@case (${2:value}) {", "\t\t${3}", "\t}", "\t@default {", "\t\t${0}", "\t}", "}"],
+    "description": "Angular @switch control flow"
+  },
+  "@defer": {
+    "prefix": "a-@defer",
+    "body": ["@defer {", "\t${1}", "} @placeholder {", "\t${2:<p>Loading...</p>}", "}"],
+    "description": "Angular @defer with @placeholder"
+  },
+  "@defer-on": {
+    "prefix": "a-@defer-on",
+    "body": ["@defer (on ${1|viewport,idle,immediate,timer,hover,interaction|}) {", "\t${2}", "} @placeholder {", "\t${3:<p>Loading...</p>}", "}"],
+    "description": "Angular @defer with trigger"
+  },
+  "@defer-full": {
+    "prefix": "a-@defer-full",
+    "body": ["@defer (on ${1:viewport}) {", "\t${2}", "} @loading {", "\t${3:<p>Loading...</p>}", "} @placeholder {", "\t${4:<p>Placeholder</p>}", "} @error {", "\t${0:<p>Error loading content</p>}", "}"],
+    "description": "Angular @defer with all blocks"
+  }
+}
