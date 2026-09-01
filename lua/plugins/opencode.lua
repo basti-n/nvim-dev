@@ -71,23 +71,4 @@ return {
     },
     opts_extend = { 'sources.default' },
   },
-
-  -- 🤖 Copilot
-  {
-    'zbirenbaum/copilot.lua',
-    cmd = 'Copilot',
-    event = 'InsertEnter',
-    config = function()
-      require('copilot').setup {
-        suggestion = { enabled = false }, -- disable old popup UI
-        panel = { enabled = false },
-      }
-    end,
-  },
-
-  -- (optional) Copilot LSP integration
-  {
-    'copilotlsp-nvim/copilot-lsp',
-    dependencies = { 'zbirenbaum/copilot.lua' },
-  },
 }

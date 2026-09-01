@@ -153,7 +153,6 @@ return {
       vuels = {},
       bashls = {},
       emmet_ls = {},
-      copilot = {},
       ts_ls = {
         on_attach = function(_client, bufnr)
           local opts = { buffer = bufnr, silent = true }

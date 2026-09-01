@@ -16,16 +16,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup {
-  -- require 'plugins.avante',
-  -- require 'plugins.copilot-chat',
-  -- require 'plugins.codecompanion',
   require 'plugins.alpha',
   require 'plugins.angular',
   require 'plugins.autocompletion',
   require 'plugins.autoformatting',
   require 'plugins.bufferline',
   require 'plugins.colortheme',
-  require 'plugins.copilot',
   require 'plugins.diffview',
   require 'plugins.gitsigns',
   require 'plugins.indent-blankline',
